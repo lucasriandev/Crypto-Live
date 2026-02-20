@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CryptoLive 🚀</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <h1>⚡ CryptoLive</h1>
+          <p>Cotação em Tempo Real</p>
+        </div>
+
+        <input
+          type="text"
+          id="input-busca"
+          placeholder="Buscar moeda (ex: Bitcoin)..."
+        />
+      </header>
+
+      <div class="tabela-container">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Moeda</th>
+              <th>Preço (R$)</th>
+              <th>24h %</th>
+              <th>Mkt Cap</th>
+            </tr>
+          </thead>
+          <tbody id="lista-moedas"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

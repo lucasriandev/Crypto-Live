@@ -17,7 +17,7 @@ async function api() {
 
     TodasAsCriptos = dados;
 
-    // Passamos a lista inteira para renderizar na primeira vez
+    // Passamos a lista inteira para renderizar
     renderizar(TodasAsCriptos);
 
     input.value = "";
@@ -65,7 +65,6 @@ function renderizar(lista) {
   });
 }
 
-// O olheiro em tempo real
 input.addEventListener("input", function (event) {
   // Pega o que foi digitado e passa para minúsculo
   const textoDigitado = event.target.value.toLowerCase();

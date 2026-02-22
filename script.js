@@ -1,7 +1,7 @@
 const listaDeMoedas = document.querySelector("#lista-moedas");
+const input = document.querySelector("#input-busca");
 
 let TodasAsCriptos = [];
-let moedaAtual = null;
 
 async function api() {
   const url =
@@ -15,7 +15,11 @@ async function api() {
     const dados = await resposta.json();
     console.log(dados);
 
-    moedaAtual = dados;
+    TodasAsCriptos = dados;
+
+    renderizar();
+
+    input.value = "";
   } catch (error) {
     console.log(error);
   }
@@ -26,8 +30,9 @@ api();
 function renderizar() {
   listaDeMoedas.innerHTML = "";
 
-  listaDeMoedas.forEach((moeda) => {
+  TodasAsCriptos.forEach((moeda) => {
     const tr = document.createElement("tr");
+
     tr.innerHTML = `
             <td>${moeda.market_cap_rank}</td>
             

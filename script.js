@@ -17,7 +17,8 @@ async function api() {
 
     TodasAsCriptos = dados;
 
-    renderizar();
+    // Passamos a lista inteira para renderizar na primeira vez
+    renderizar(TodasAsCriptos);
 
     input.value = "";
   } catch (error) {
@@ -27,11 +28,21 @@ async function api() {
 
 api();
 
-function renderizar() {
+// Adicionando o parâmetro 'lista' para ela desenhar o que a gente mandar
+function renderizar(lista) {
   listaDeMoedas.innerHTML = "";
 
-  TodasAsCriptos.forEach((moeda) => {
+  // O loop agora roda na 'lista' que ela recebeu
+  lista.forEach((moeda) => {
     const tr = document.createElement("tr");
+
+    // Lógica para cor: verde se for maior que zero, vermelho se for menor
+    let classeCor = "";
+    if (moeda.price_change_percentage_24h > 0) {
+      classeCor = "positivo";
+    } else {
+      classeCor = "negativo";
+    }
 
     tr.innerHTML = `
             <td>${moeda.market_cap_rank}</td>
@@ -45,7 +56,7 @@ function renderizar() {
             
             <td>R$ ${moeda.current_price}</td>
             
-            <td>${moeda.price_change_percentage_24h}%</td>
+            <td class="${classeCor}">${moeda.price_change_percentage_24h}%</td>
             
             <td>R$ ${moeda.market_cap}</td>
         `;
@@ -53,3 +64,19 @@ function renderizar() {
     listaDeMoedas.appendChild(tr);
   });
 }
+
+// O olheiro em tempo real
+input.addEventListener("input", function (event) {
+  // Pega o que foi digitado e passa para minúsculo
+  const textoDigitado = event.target.value.toLowerCase();
+
+  // Filtra o nosso "cofre" original
+  const moedasFiltradas = TodasAsCriptos.filter((moeda) => {
+    const nomeDaMoeda = moeda.name.toLowerCase();
+    // Retorna verdadeiro se o nome da moeda tiver o texto digitado
+    return nomeDaMoeda.includes(textoDigitado);
+  });
+
+  // Manda o pintor desenhar só as moedas filtradas
+  renderizar(moedasFiltradas);
+});

@@ -15,7 +15,8 @@ body {
 }
 
 .container {
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -105,4 +106,27 @@ td {
 .negativo {
   color: #f87171;
   font-weight: bold;
+}
+
+/* =========================================
+   RESPONSIVIDADE PARA CELULARES
+   ========================================= */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .container {
+    padding: 20px 15px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  input {
+    width: 100%;
+  }
 }

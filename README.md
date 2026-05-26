@@ -3,8 +3,6 @@
 Uma aplicação web dinâmica que exibe as cotações das principais criptomoedas em tempo real. Desenvolvido com um design moderno em *Glassmorphism*, o projeto consome dados reais para manter os investidores sempre atualizados.
 
 ## 🔗 Demonstração
-Acesse o projeto online aqui: **[CryptoLive](https://lucasriandev.github.io/Crypto-Live/)**
-
 ![Preview do Projeto](https://github.com/user-attachments/assets/70ac77f2-173c-402d-9f27-d4f0663531d0)
 
 ## 📋 Sobre o Projeto
